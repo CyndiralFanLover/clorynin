@@ -59,6 +59,19 @@ function CommandPermissionType(args) {
   }
 }
 
+function CommandType(args) {
+  args = args?.toUpperCase()
+  if (args === "CHAT_INPUT") {
+    return 1
+  }
+  if (args === "USER") {
+    return 2
+  }
+  if (args === "MESSAGE") {
+    return 3
+  }
+}
+
 //Style
 function ButtonStyle(args) {
   args = args?.toUpperCase()
@@ -125,7 +138,6 @@ function ResolveColor(args) {
 
 class Embed {
   constructor(raw) {
-    this.type = "rich"
     this.title = raw?.title || null
     this.description = raw?.description || null
     this.url = raw?.url || null
@@ -133,9 +145,7 @@ class Embed {
     this.author = raw?.author || null
     this.footer = raw?.footer || null
     this.image = raw?.image || null
-    this.video = null
     this.color = raw?.color || null
-    this.provider = null
   }
 
   addField(name, value, inline) {
@@ -153,7 +163,7 @@ class Embed {
         return this
       }
       if (!typeof value === "string") {
-        console.log("(Error Utility)  Field Value Must Be A String")
+        console.log("Field Value Must Be A String")
         return this
       }
       if (!inline === true || false) inline = false
@@ -170,28 +180,28 @@ class Embed {
   addFields(fields) {
     try {
       if (fields?.length === 0) {
-        console.log("(Error Utility)  Fields Cannot Be Empty")
+        console.log("Fields Cannot Be Empty")
         return this
       }
       if (!Array.isArray(fields)) {
-        console.log("(Error Utility)  Fields Must be array")
+        console.log("Fields Must be array")
         return this
       }
       fields.map((neh, num) => {
         if (!neh?.name || neh?.name.length === 0) {
-          console.log(`(Error Utility)  [Field ${num}]` + "Provide A Name")
+          console.log(`[Field ${num}]` + "Provide A Name")
           return this
         }
         if (!neh?.value || neh?.value.length === 0) {
-          console.log(`(Error Utility)  [Field ${num}] ` + "Provide A Value")
+          console.log(`[Field ${num}] ` + "Provide A Value")
           return this
         }
         if (!typeof neh?.name === "string") {
-          console.log(`(Error Utility)  [Field ${num}] ` + "Field Title Must Be A String")
+          console.log(`[Field ${num}] ` + "Field Title Must Be A String")
           return this
         }
         if (!typeof neh?.value === "string") {
-          console.log(`(Error Utility)  [Field ${num}] ` + "Field Value Must Be A String")
+          console.log(`[Field ${num}] ` + "Field Value Must Be A String")
           return this
         }
         if (!neh?.inline === true || false) neh.inline = false
@@ -226,15 +236,15 @@ class Embed {
   setImage(image) {
     try {
       if ((!image?.url) && (image?.url.length === 0)) {
-        console.log("(Error Utility)   Image Must A Url\n\n\"{url: \"https://image.id/image.jpg}\"\nor\nsetImage({url:url})")
+        console.log("   Image Must A Url\n\n\"{url: \"https://image.id/image.jpg}\"\nor\nsetImage({url:url})")
         return this
       }
       if (!typeof image?.url === "string") {
-        console.log("(Error Utility)  Image URL Must Be A String")
+        console.log("  Image URL Must Be A String")
         return this
       }
       if ((!image.url?.startsWith("http")) || (!image.url?.startsWith("https"))) {
-        console.log("(Error Utility)  Image Must Be Using URL\n\n\"Like https://google.com/image.jpg\"")
+        console.log("  Image Must Be Using URL\n\n\"Like https://google.com/image.jpg\"")
         return this
 
       }
@@ -249,15 +259,15 @@ class Embed {
   setThumbnail(image) {
     try {
       if ((!image?.url) && (image?.url.length === 0)) {
-        console.log("(Error Utility)   Image Must A Url\n\n\"{url: \"https://image.id/image.jpg}\"\nor\nsetImage({url:url})")
+        console.log("   Image Must A Url\n\n\"{url: \"https://image.id/image.jpg}\"\nor\nsetImage({url:url})")
         return this
       }
       if (!typeof image?.url === "string") {
-        console.log("(Error Utility)  Image URL Must Be A String")
+        console.log("  Image URL Must Be A String")
         return this
       }
       if ((!image.url?.startsWith("http")) || (!image.url?.startsWith("https"))) {
-        console.log("(Error Utility)  Image Must Be Using URL\n\n\"Like https://google.com/image.jpg\"")
+        console.log("  Image Must Be Using URL\n\n\"Like https://google.com/image.jpg\"")
         return this
 
       }
@@ -272,11 +282,11 @@ class Embed {
   setDescription(description) {
     try {
       if ((!description) && description.length === 0) {
-        console.log('(Error Utility)  Description Cannot Empty')
+        console.log('  Description Cannot Empty')
         return this
       }
       if (!typeof description === "string") {
-        console.log('(Error Utility)  Description Must A String')
+        console.log('  Description Must A String')
         return this
       }
       this.description = description
@@ -290,11 +300,11 @@ class Embed {
   setTitle(title) {
     try {
       if ((!title) && title?.length === 0) {
-        console.log('(Error Utility)  Title Cannot Empty')
+        console.log('  Title Cannot Empty')
         return this
       }
       if (!typeof title === "string") {
-        console.log('(Error Utility)  Title Must Be A String')
+        console.log('  Title Must Be A String')
         return this
       }
       this.title = title
@@ -308,31 +318,31 @@ class Embed {
   setAuthor(name, iconURL, url) {
     if (!name?.name) {
       if ((!name) && name?.length === 0) {
-        console.log('(Error Utility) Name Cannot Empty')
+        console.log(' Name Cannot Empty')
         return this
       }
       if (!typeof name === "string") {
-        console.log('(Error Utility) Name Must A String')
+        console.log(' Name Must A String')
         return this
       }
 
       if (iconURL) {
         if (!typeof iconURL === "string") {
-          console.log('(Error Utility) URL Must A String')
+          console.log(' URL Must A String')
           return this
         }
         if (iconURL?.length === 0) {
-          console.log('(Error Utility) URL Cannot Empty')
+          console.log(' URL Cannot Empty')
           return this
         }
       }
       if (url) {
         if (!typeof url === "string") {
-          console.log('(Error Utility) URL Must A String')
+          console.log(' URL Must A String')
           return this
         }
         if (url?.length === 0) {
-          console.log('(Error Utility) URL Cannot Empty')
+          console.log(' URL Cannot Empty')
           return this
         }
       }
@@ -340,30 +350,30 @@ class Embed {
       return this
     } else {
       if ((!name?.name) && name?.name.length === 0) {
-        console.log('(Error Utility) URL Cannot Empty')
+        console.log(' URL Cannot Empty')
         return this
       }
       if (!typeof name.name === "string") {
-        console.log('(Error Utility) URL Must A String')
+        console.log(' URL Must A String')
         return this
       }
       if (name?.iconURL) {
         if (!typeof name?.iconURL === "string") {
-          console.log('(Error Utility) iconURL Must A String')
+          console.log(' iconURL Must A String')
           return this
         }
         if (name?.iconURL.length === 0) {
-          console.log('(Error Utility) iconURL Cannot Empty')
+          console.log(' iconURL Cannot Empty')
           return this
         }
       }
       if (name?.url) {
         if (!typeof name?.url === "string") {
-          console.log('(Error Utility) URL Must A String')
+          console.log(' URL Must A String')
           return this
         }
         if (name?.url.length === 0) {
-          console.log('(Error Utility) URL Cannot Empty')
+          console.log(' URL Cannot Empty')
           return this
         }
       }
@@ -375,21 +385,21 @@ class Embed {
   setFooter(text, iconURL) {
     if (!text?.text) {
       if ((!text) && text?.length === 0) {
-        console.log('(Error Utility) text Cannot Empty')
+        console.log(' text Cannot Empty')
         return this
       }
       if (!typeof text === "string") {
-        console.log('(Error Utility) Text Must A String')
+        console.log(' Text Must A String')
         return this
       }
 
       if (iconURL) {
         if (!typeof iconURL === "string") {
-          console.log('(Error Utility) iconURL Must A String')
+          console.log(' iconURL Must A String')
           return this
         }
         if (iconURL?.length === 0) {
-          console.log('(Error Utility) iconURL Cannot Empty')
+          console.log(' iconURL Cannot Empty')
           return this
         }
       }
@@ -397,20 +407,20 @@ class Embed {
       return this
     } else {
       if ((!text?.text) && text?.text.length === 0) {
-        console.log('(Error Utility) Text Cannot Empty')
+        console.log(' Text Cannot Empty')
         return this
       }
       if (!typeof text.text === "string") {
-        console.log('(Error Utility) Text Must A String')
+        console.log(' Text Must A String')
         return this
       }
       if (text?.iconURL) {
         if (!typeof text?.iconURL === "string") {
-          console.log('(Error Utility) iconURL Must A String')
+          console.log(' iconURL Must A String')
           return this
         }
         if (text?.iconURL.length === 0) {
-          console.log('(Error Utility) iconURL Cannot Empty')
+          console.log(' iconURL Cannot Empty')
           return this
         }
       }
@@ -422,11 +432,11 @@ class Embed {
   setURL(url) {
     try {
       if ((!url) && url?.length === 0) {
-        console.log('(Error Utility) URL Cannot Empty')
+        console.log(' URL Cannot Empty')
         return this
       }
       if (!typeof url === "string") {
-        console.log('(Error Utility) URL Must A String')
+        console.log(' URL Must A String')
         return this
       }
       this.url = url
@@ -453,7 +463,7 @@ class Embed {
 
 class ActionRow {
   constructor() {
-    this.type = "ACTION_ROW"
+    this.type = 
     this.components = []
   }
 
@@ -489,6 +499,451 @@ class ActionRow {
   }
 }
 
+
+class Command {
+  constructor(data) {
+    this.name = data?.name || null
+    this.description = data?.description || null
+    this.options = data?.options || [];
+    this.type = data?.type || 1
+  }
+
+  setName(name) {
+    try {
+      if ((!name) && name?.length === 0) {
+        console.log('Name Cannot Empty')
+        return this
+      }
+      if (!typeof name === "string") {
+        console.log('Name Must Be A String')
+        return this
+      }
+      this.name = name
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  setDescription(description) {
+    try {
+      if ((!description) && description?.length === 0) {
+        console.log('Name Cannot Empty')
+        return this
+      }
+      if (!typeof description === "string") {
+        console.log('Name Must Be A String')
+        return this
+      }
+      this.description = description
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  setType(type) {
+    try {
+      if (typeof type === "number") {
+        if ((type > 3) && (type < 1)) {
+          console.log('Type Command Isn\'t Valid (Support 1 - 3)')
+          return this
+        }
+        this.type = type
+      }
+      if (typeof type === "string") {
+        if (!CommandType(type)) {
+          console.log("Not Valid")
+          return this
+        }
+        this.type = CommandType(type)
+      }
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addOption(name, description, type, required) {
+    try {
+      if (!name || name?.length === 0) {
+        console.log("Provide A Name For Field")
+        return this
+      }
+      if (!description || description?.length === 0) {
+        console.log("Provide A Description For Field")
+        return this
+      }
+      if (!type) {
+        console.log("Provide A Type")
+        return this
+      }
+      if (!typeof name === "string") {
+        console.log("Field Title Must Be A String")
+        return this
+      }
+      if (!typeof description === "string") {
+        console.log("Field Value Must Be A String")
+        return this
+      }
+      if (!required === true || false) required = false
+
+      if (typeof type === "number") {
+        if ((type > 11) && (type < 1)) {
+          console.log('Type Command Isn\'t Valid (Support 1 - 11)')
+          return this
+        }
+      }
+      if (typeof type === "string") {
+        if (!CommandOptionType(type)) {
+          console.log("Not Valid")
+          return this
+        }
+        type = CommandOptionType(type)
+      }
+
+      if (!Array.isArray(this.options)) this.options = []
+      this.options.push({ name: name, description: description, required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addOptions(options) {
+    try {
+      if (options?.length === 0) {
+        console.log("Fields Cannot Be Empty")
+        return this
+      }
+      if (!Array.isArray(options)) {
+        console.log("Fields Must be array")
+        return this
+      }
+      options.map((neh, num) => {
+        if (!neh?.name || neh?.name.length === 0) {
+          console.log(`[Field ${num}]` + "Provide A Name")
+          return this
+        }
+        if (!neh?.description || neh?.description.length === 0) {
+          console.log(`[Field ${num}] ` + "Provide A Value")
+          return this
+        }
+        if (!neh?.type) {
+          console.log(`[Field ${num}] ` + "Provide A Type")
+          return this
+        }
+        if (!typeof neh?.name === "string") {
+          console.log(`[Field ${num}] ` + "Field Title Must Be A String")
+          return this
+        }
+        if (!typeof neh?.description === "string") {
+          console.log(`[Field ${num}] ` + "Field Value Must Be A String")
+          return this
+        }
+        if (!neh?.required === true || false) neh.required = false
+
+        if (typeof neh?.type === "number") {
+          if ((neh.type > 11) && (neh.type < 1)) {
+            console.log('Type Command Isn\'t Valid (Support 1 - 11)')
+            return this
+          }
+        }
+        if (typeof neh?.type === "string") {
+          if (!CommandOptionType(neh?.type)) {
+            console.log("Not Valid")
+            return this
+          }
+          neh.type = CommandOptionType(neh.type)
+        }
+
+        if (!Array.isArray(this.options)) this.options = []
+        this?.options.push({ title: neh?.name, description: neh?.description, required: neh?.required })
+      })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addSubcommand(name, description) {
+    try {
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("SUB_COMMAND") })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addSubcommandGroup(name, description, options) {
+    try {
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      if (Array.isArray(options)) {
+        options = options.map((na, nu) => {
+          return {
+            name: na?.name || null,
+            description: na?.description || null,
+            type: na?.type || null,
+            required: na?.required || false,
+            autocomplete: na?.autocomplete || false,
+            min_value: na?.min_value || null,
+            max_value: na?.max_value || null
+          }
+        })
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("SUB_COMMAND_GROUP"), options: options })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addStringOption(name, description, required, autocomplete) {
+    try {
+      if (!required === true || false) required = false
+      if (!autocomplete === true || false) autocomplete = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+
+      this.options.push({ name: name, description: description, type: CommandOptionType("STRING"), autocomplete: autocomplete, required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addIntegerOption(name, description, required, autocomplete, min_value, max_value) {
+    try {
+      if (!required === true || false) required = false
+      if (!autocomplete === true || false) autocomplete = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      var angka = { name: name, description: description, type: CommandOptionType("INTEGER"), autocomplete: autocomplete, required: required }
+
+      if (min_value && (typeof min_value === "integer")) {
+        angka["min_value"] = min_value
+      }
+
+      if (max_value && (typeof max_value === "integer")) {
+        angka["max_value"] = max_value
+      }
+
+      this.options.push(angka)
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addIntegerOption(name, description, required, autocomplete, min_value, max_value) {
+    try {
+      if (!required === true || false) required = false
+      if (!autocomplete === true || false) autocomplete = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      var angka = { name: name, description: description, type: CommandOptionType("NUMBER"), autocomplete: autocomplete, required: required }
+
+      if (min_value && (typeof min_value === "number")) {
+        angka["min_value"] = min_value
+      }
+
+      if (max_value && (typeof max_value === "number")) {
+        angka["max_value"] = max_value
+      }
+
+      this.options.push(angka)
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addBooleanOption(name, description, required) {
+    try {
+      if (!required === true || false) required = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("BOOLEAN"), required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addUserOption(name, description, required) {
+    try {
+      if (!required === true || false) required = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("USER"), required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addChannelOption(name, description, required) {
+    try {
+      if (!required === true || false) required = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("CHANNEL"), required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addRoleOption(name, description, required) {
+    try {
+      if (!required === true || false) required = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("ROLE"), required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addMentionOption(name, description, required) {
+    try {
+      if (!required === true || false) required = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("MENTIONABLE"), required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addNumberOption(name, description, required, autocomplete, min_value, max_value) {
+    try {
+      if (!required === true || false) required = false
+      if (!autocomplete === true || false) autocomplete = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      var angka = { name: name, description: description, type: CommandOptionType("INTEGER"), autocomplete: autocomplete, required: required }
+
+      if (min_value && (typeof min_value === "number")) {
+        angka["min_value"] = min_value
+      }
+
+      if (max_value && (typeof max_value === "number")) {
+        angka["max_value"] = max_value
+      }
+      this.options.push(angka)
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+
+  addAttachmentOption(name, description, required) {
+    try {
+      if (!required === true || false) required = false
+      if (!name && name.length === 0) {
+        console.log('Provide A Name')
+        return this
+      }
+      if (!description && description === 0) {
+        console.log('Provide A Description')
+        return this
+      }
+      this.options.push({ name: name, description: description, type: CommandOptionType("ATTACHMENT"), required: required })
+      return this
+    } catch (err) {
+      console.log("Builder Err : " + err)
+      return this
+    }
+  }
+}
+
 module.exports = {
   CommandOptionType: CommandOptionType(),
   CommandPermissionType: CommandPermissionType(),
@@ -497,5 +952,6 @@ module.exports = {
   TextInputStyle: TextInputStyle(),
   ResolveColor: ResolveColor(),
   Embed: Embed,
-  ActionRow: ActionRow
+  ActionRow: ActionRow,
+  Command: Command
 }
