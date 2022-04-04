@@ -1,5 +1,18 @@
 # Clorynin
 
+<h2>Builder</h2>
+<h3>Button</h3>
+
+```js
+const { Button } = require("clorynin")
+const btn = new Button()
+.setEmoji("828383907")
+.setLabel("Baka!!")
+.setCustomId("apanjir")
+.setStyle("Primary")
+.setUrl("https://google.com")
+```
+
 <h2>Data Parser</h2>
 <h3>CommandOptionType</h3>
 
