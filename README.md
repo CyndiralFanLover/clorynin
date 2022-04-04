@@ -1,8 +1,9 @@
 # Clorynin
 
-<h2>Builder</h2>
-<h3>Button</h3>
-<h4>setTitle</h3>
+<h1>Class</h1>
+<h2>Button</h2>
+<h3>Method</h3>
+<h4>setTitle</h4>
 
 ```js
 .setLabel(label)
@@ -41,8 +42,8 @@ const btn = new Button()
 .setUrl("https://google.com")
 ```
 
-<h2>Data Parser</h2>
-<h3>CommandOptionType</h3>
+<h1>Data Parser</h1>
+<h2>CommandOptionType</h2>
 
 Parse Option Type String To Option Type Number
 ```js
@@ -63,7 +64,7 @@ function CommandOptionType(OptionType)
 
 --------------------
 
-<h3>CommandType</h3>
+<h2>CommandType</h2>
 
 Parse Command Permission Type String To Command Type Number
 ```js
@@ -76,7 +77,7 @@ function CommandType(ApplicationCommandType)
 
 --------------------
 
-<h3>CommandPermissionType</h3>
+<h2>CommandPermissionType</h2>
 
 Parse Command Type String To Command Permission Type Number
 ```js
@@ -88,7 +89,7 @@ function CommandPermissionType(CommandPermissionType)
 
 ---------------------
 
-<h3>ButtonStyle</h3>
+<h2>ButtonStyle</h2>
 
 Parse Button Style String To Button Style Number
 ```js
@@ -103,7 +104,7 @@ function ButtonStyle(ButtonStyle)
 
 -------------------
 
-<h3>ButtonStyle</h3>
+<h3>TextInputStyle</h3>
 
 Parse Text Input Style String To Text Input Style Number
 ```js
