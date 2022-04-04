@@ -1,15 +1,15 @@
 const { ButtonStyle } = require("./../helper.js")
 
 class Button {
-  constructor() {
+  constructor(data) {
     this.type = 2
-    this.style = null
-    this.label = null
-    this.custom_id = null
-    this.url = null
-    this.disabled = false
+    this.style = data?.style || null
+    this.label = data?.label || null
+    this.custom_id = data?.custom_id || null
+    this.url = data?.url || null
+    this.disabled = data?.disabled || false
     this.emoji = {
-      id: null
+      id: data?.emoji || null
     }
   }
 
