@@ -11,7 +11,7 @@
 --------------
 | Parameter | Required | Type Data | Description |
 | ----- | ----- | ----- | ----- |
-| label | ✓ | `String` | Change Label Button |
+| label | [X] | `String` | Change Label Button |
 --------------
 
 Example Usage
