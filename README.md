@@ -4,14 +4,16 @@
 <h3>Button</h3>
 <h4>setTitle</h3>
 
-```
+```js
 .setTitle(title)```
+
 --------------
 | Parameter | Require | Default |
 | title | [x] | null |
-
+--------------
 
 Example Usage
+
 ```js
 const { Button } = require("clorynin")
 const btn = new Button()
