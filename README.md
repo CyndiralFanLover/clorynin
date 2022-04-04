@@ -5,16 +5,31 @@
 <h4>setTitle</h3>
 
 ```js
-.setTitle(label)
+.setLabel(label)
 ```
 
 --------------
 | Parameter | Required | Type Data | Description |
 | ----- | ----- | ----- | ----- |
-| label | - [X]  | `String` | Change Label Button |
+| label | X  | `String` | Change Label Button |
 --------------
 
 Example Usage
+
+
+<h4>setCustomId</h3>
+
+```js
+.setCustomId(Id)
+```
+
+--------------
+| Parameter | Required | Type Data | Description |
+| ----- | ----- | ----- | ----- |
+| Id | X  | `String` | Change Custom ID Button |
+--------------
+
+Note : LINK Style Button Can't Use CustomId (Can Only Use URL)
 
 ```js
 const { Button } = require("clorynin")
