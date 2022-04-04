@@ -44,3 +44,33 @@ function CommandPermissionType(CommandPermissionType)
 `CommandPermissionType` (String) :
 - `ROLE`
 - `USER`
+
+---------------------
+
+<h3>ButtonStyle</h3>
+
+Parse Button Style String To Button Style Number
+```js
+function ButtonStyle(ButtonStyle)
+```
+`ButtonStyle` (String) :
+- `PRIMARY`
+- `SECONDARY`
+- `SUCCESS`
+- `WARNING`
+- `LINK`
+
+-------------------
+
+<h3>ButtonStyle</h3>
+
+Parse Button Style String To Button Style Number
+```js
+function ButtonStyle(ButtonStyle)
+```
+`ButtonStyle` (String) :
+- `PRIMARY`
+- `SECONDARY`
+- `SUCCESS`
+- `WARNING`
+- `LINK`
