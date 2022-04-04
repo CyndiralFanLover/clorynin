@@ -10,6 +10,7 @@
 
 --------------
 | Parameter | Require | Default |
+| ----- | ----- | ----- |
 | title | [x] | null |
 --------------
 
