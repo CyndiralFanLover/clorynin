@@ -64,13 +64,10 @@ function ButtonStyle(ButtonStyle)
 
 <h3>ButtonStyle</h3>
 
-Parse Button Style String To Button Style Number
+Parse Text Input Style String To Text Input Style Number
 ```js
-function ButtonStyle(ButtonStyle)
+function TextInputStyle(InputStyle)
 ```
-`ButtonStyle` (String) :
-- `PRIMARY`
-- `SECONDARY`
-- `SUCCESS`
-- `WARNING`
-- `LINK`
+`InputStyle` (String) :
+- `SHORT`
+- `PARAGRAPH`
