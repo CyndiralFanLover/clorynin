@@ -5,7 +5,8 @@
 <h4>setTitle</h3>
 
 ```js
-.setTitle(title)```
+.setTitle(title)
+```
 
 --------------
 | Parameter | Require | Default |
