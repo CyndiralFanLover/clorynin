@@ -11,7 +11,7 @@
 --------------
 | Parameter | Require | Default |
 | ----- | ----- | ----- |
-| title | [x] | null |
+| title | [ x ] | null |
 --------------
 
 Example Usage
