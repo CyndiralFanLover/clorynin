@@ -2,7 +2,16 @@
 
 <h2>Builder</h2>
 <h3>Button</h3>
+<h4>setTitle</h3>
 
+```
+.setTitle(title)```
+--------------
+| Parameter | Require | Default |
+| title | [x] | null |
+
+
+Example Usage
 ```js
 const { Button } = require("clorynin")
 const btn = new Button()
