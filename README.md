@@ -5,13 +5,13 @@
 <h4>setTitle</h3>
 
 ```js
-.setTitle(title)
+.setTitle(label)
 ```
 
 --------------
-| Parameter | Require | Default |
-| ----- | ----- | ----- |
-| title | (x) | null |
+| Parameter | Required | Type Data | Description |
+| ----- | ----- | ----- | ----- |
+| label | ✓ | `String` | Change Label Button |
 --------------
 
 Example Usage
