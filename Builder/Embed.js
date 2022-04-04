@@ -218,91 +218,91 @@ class Embed {
 
   setAuthor(name, iconURL, url) {
     try {
-    if ((!name?.name) && (!name?.iconURL) && (!name?.url)) {
-      if (!name) {
-        console.log("(Clorynin Alert) Parameter name Must Fill!")
-        return this
-      }
-      if (!typeof name === "string") {
-        console.log("(Clorynin Alert) Parameter name Must Be A String")
-        return this
-      }
-      if (name.length === 0) {
-        console.log("(Clorynin Alert) Parameter name Cannot Be Empty")
-        return this
-      }
-      if (!iconURL) {
-        iconURL = null
-      }
-      if (!typeof iconURL === "null") {
-        if (!typeof iconURL === "string") {
-          console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+      if ((!name?.name) && (!name?.iconURL) && (!name?.url)) {
+        if (!name) {
+          console.log("(Clorynin Alert) Parameter name Must Fill!")
           return this
         }
-        if (iconURL.length === 0) {
-          console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+        if (!typeof name === "string") {
+          console.log("(Clorynin Alert) Parameter name Must Be A String")
           return this
         }
-      }
+        if (name.length === 0) {
+          console.log("(Clorynin Alert) Parameter name Cannot Be Empty")
+          return this
+        }
+        if (!iconURL) {
+          iconURL = null
+        }
+        if (!typeof iconURL === "null") {
+          if (!typeof iconURL === "string") {
+            console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+            return this
+          }
+          if (iconURL.length === 0) {
+            console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+            return this
+          }
+        }
 
 
-      if (!url) {
-        url = null
-      }
-      if (!typeof url === "null") {
-        if (!typeof url === "string") {
-          console.log("(Clorynin Alert) Parameter url Must Be A String")
+        if (!url) {
+          url = null
+        }
+        if (!typeof url === "null") {
+          if (!typeof url === "string") {
+            console.log("(Clorynin Alert) Parameter url Must Be A String")
+            return this
+          }
+          if (url.length === 0) {
+            console.log("(Clorynin Alert) Parameter url Cannot Be Empty")
+            return this
+          }
+        }
+        this.author = { name: name, iconURL: iconURL, url: url }
+        return this
+      } else {
+        if (!name?.name) {
+          console.log("(Clorynin Alert) Parameter name Must Fill!")
           return this
         }
-        if (url.length === 0) {
-          console.log("(Clorynin Alert) Parameter url Cannot Be Empty")
+        if (!typeof name?.name === "string") {
+          console.log("(Clorynin Alert) Parameter name Must Be A String")
           return this
         }
-      }
-      this.author = { name: name, iconURL: iconURL, url: url }
-      return this
-    } else {
-      if (!name?.name) {
-        console.log("(Clorynin Alert) Parameter name Must Fill!")
+        if (name?.name.length === 0) {
+          console.log("(Clorynin Alert) Parameter name Cannot Be Empty")
+          return this
+        }
+        if (!name?.iconURL) {
+          name.iconURL = null
+        }
+        if (!typeof name?.iconURL === "null") {
+          if ((!typeof name?.iconURL === "string")) {
+            console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+            return this
+          }
+          if (name?.iconURL.length === 0) {
+            console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+            return this
+          }
+        }
+        if (!name?.url) {
+          name.url = null
+        }
+        if (!typeof name?.iconURL === "null") {
+          if ((!typeof name?.url === "string")) {
+            console.log("(Clorynin Alert) Parameter url Must Be A String")
+            return this
+          }
+          if (name?.url.length === 0) {
+            console.log("(Clorynin Alert) Parameter url Cannot Be Empty")
+            return this
+          }
+        }
+        this.author = { name: name.name, iconURL: name.iconURL, url: name.url }
         return this
       }
-      if (!typeof name?.name === "string") {
-        console.log("(Clorynin Alert) Parameter name Must Be A String")
-        return this
-      }
-      if (name?.name.length === 0) {
-        console.log("(Clorynin Alert) Parameter name Cannot Be Empty")
-        return this
-      }
-      if (!name?.iconURL) {
-        name.iconURL = null
-      }
-      if (!typeof name?.iconURL === "null") {
-        if ((!typeof name?.iconURL === "string")) {
-          console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
-          return this
-        }
-        if (name?.iconURL.length === 0) {
-          console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
-          return this
-        }
-      }
-      if (!name?.url) {
-        name.url = null
-      }
-      if (!typeof name?.iconURL === "null") {
-        if ((!typeof name?.url === "string")) {
-          console.log("(Clorynin Alert) Parameter url Must Be A String")
-          return this
-        }
-        if (name?.url.length === 0) {
-          console.log("(Clorynin Alert) Parameter url Cannot Be Empty")
-          return this
-        }
-      }
-      this.author = { name: name.name, iconURL: name.iconURL, url: name.url }
-      return this
-    }
     } catch (err) {
       console.log("(Clorynin Error) " + err)
       return this
@@ -311,63 +311,63 @@ class Embed {
 
   setFooter(text, iconURL) {
     try {
-    if ((!text?.text) && (!text?.iconURL)) {
-      if (!text) {
-        console.log("(Clorynin Alert) Parameter text Must Fill!")
-        return this
-      }
-      if (!typeof text === "string") {
-        console.log("(Clorynin Alert) Parameter text Must Be A String")
-        return this
-      }
-      if (text.length === 0) {
-        console.log("(Clorynin Alert) Parameter text Cannot Be Empty")
-        return this
-      }
-      if (!iconURL) {
-        iconURL = null
-      }
-      if (!typeof iconURL === "null") {
-        if ((!typeof iconURL === "string")) {
-          console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+      if ((!text?.text) && (!text?.iconURL)) {
+        if (!text) {
+          console.log("(Clorynin Alert) Parameter text Must Fill!")
           return this
         }
-        if (iconURL.length === 0) {
-          console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+        if (!typeof text === "string") {
+          console.log("(Clorynin Alert) Parameter text Must Be A String")
           return this
         }
-      }
-      this.footer = { text: text, iconURL: iconURL }
-      return this
-    } else {
-      if (!text?.text) {
-        console.log("(Clorynin Alert) Parameter text Must Fill!")
-        return this
-      }
-      if (!typeof text?.text === "string") {
-        console.log("(Clorynin Alert) Parameter text Must Be A String")
-        return this
-      }
-      if (text?.text.length === 0) {
-        console.log("(Clorynin Alert) Parameter text Cannot Be Empty")
-        return this
-      }
-      if (!text?.iconURL) {
-        text.iconURL = null
-      }
-      if (!typeof text?.iconURL === "null") {
-        if ((!typeof text?.iconURL === "string")) {
-          console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+        if (text.length === 0) {
+          console.log("(Clorynin Alert) Parameter text Cannot Be Empty")
           return this
         }
-        if (text?.iconURL.length === 0) {
-          console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+        if (!iconURL) {
+          iconURL = null
+        }
+        if (!typeof iconURL === "null") {
+          if ((!typeof iconURL === "string")) {
+            console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+            return this
+          }
+          if (iconURL.length === 0) {
+            console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+            return this
+          }
+        }
+        this.footer = { text: text, iconURL: iconURL }
+        return this
+      } else {
+        if (!text?.text) {
+          console.log("(Clorynin Alert) Parameter text Must Fill!")
           return this
         }
+        if (!typeof text?.text === "string") {
+          console.log("(Clorynin Alert) Parameter text Must Be A String")
+          return this
+        }
+        if (text?.text.length === 0) {
+          console.log("(Clorynin Alert) Parameter text Cannot Be Empty")
+          return this
+        }
+        if (!text?.iconURL) {
+          text.iconURL = null
+        }
+        if (!typeof text?.iconURL === "null") {
+          if ((!typeof text?.iconURL === "string")) {
+            console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
+            return this
+          }
+          if (text?.iconURL.length === 0) {
+            console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
+            return this
+          }
+        }
+        this.footer = { text: text.text, iconURL: text.iconURL }
+        return this
       }
-      this.footer = { text: text.text, iconURL: text.iconURL }
-      return this
-    }
     } catch (err) {
       console.log("(Clorynin Error) " + err)
       return this
