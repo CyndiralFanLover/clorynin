@@ -1,47 +1,5 @@
 # Clorynin
 
-<h1>Class</h1>
-<h2>Button</h2>
-<h3>Method</h3>
-<h4>setTitle</h4>
-
-```js
-.setLabel(label)
-```
-
---------------
-| Parameter | Required | Type Data | Description |
-| ----- | ----- | ----- | ----- |
-| label | X  | `String` | Change Label Button |
---------------
-
-Example Usage
-
-
-<h4>setCustomId</h3>
-
-```js
-.setCustomId(Id)
-```
-
---------------
-| Parameter | Required | Type Data | Description |
-| ----- | ----- | ----- | ----- |
-| Id | X  | `String` | Change Custom ID Button |
---------------
-
-Note : LINK Style Button Can't Use CustomId (Can Only Use URL)
-
-```js
-const { Button } = require("clorynin")
-const btn = new Button()
-.setEmoji("828383907")
-.setLabel("Baka!!")
-.setCustomId("apanjir")
-.setStyle("Primary")
-.setUrl("https://google.com")
-```
-
 <h1>Data Parser</h1>
 <h2>CommandOptionType</h2>
 
