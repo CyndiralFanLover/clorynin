@@ -9,7 +9,7 @@ class Embed {
     this.author = raw?.author || null
     this.footer = raw?.footer || null
     this.image = raw?.image || null
-    this.color = raw?.color || null
+    this.color = raw?.color || ResolveColor("Random")
   }
 
   addField(name, value, inline) {
