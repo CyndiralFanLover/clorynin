@@ -45,7 +45,7 @@ class Embed {
       if (!Array.isArray(this.fields)) this.fields = []
       this.fields.push({ name: name, value: value, inline: inline })
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -96,7 +96,7 @@ class Embed {
         this?.fields.push({ title: neh?.name, value: neh?.value, inline: neh?.inline })
       })
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -114,7 +114,7 @@ class Embed {
         this.color = [color[0], color[1], color[2]]
         return this
       }
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -144,10 +144,11 @@ class Embed {
         }
         this.image = { url: image.url }
         return this
-      } catch (err) {
-        console.log("(Clorynin Error) " + err)
-        return this
+
       }
+    } catch(err) {
+      console.log("(Clorynin Error) " + err)
+      return this
     }
   }
 
@@ -171,7 +172,7 @@ class Embed {
       }
       this.thumbnail = { url: image.url }
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -193,7 +194,7 @@ class Embed {
       }
       this.description = description
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -215,7 +216,7 @@ class Embed {
       }
       this.title = title
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -308,7 +309,7 @@ class Embed {
         this.author = { name: name.name, iconURL: name.iconURL, url: name.url }
         return this
       }
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -373,7 +374,7 @@ class Embed {
         this.footer = { text: text.text, iconURL: text.iconURL }
         return this
       }
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -395,7 +396,7 @@ class Embed {
       }
       this.url = url
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
@@ -413,7 +414,7 @@ class Embed {
       }
       this.date = date
       return this
-    } catch (err) {
+    } catch(err) {
       console.log("(Clorynin Error) " + err)
       return this
     }
