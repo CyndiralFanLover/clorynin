@@ -122,27 +122,32 @@ class Embed {
 
   setImage(image) {
     try {
-      if (!image?.url) {
-        console.log("(Clorynin Alert) Parameter image.url Must Fill!")
+      if (typeof image === "string") {
+        this.image = image
+        return this
+      } else {
+        if (!image?.url) {
+          console.log("(Clorynin Alert) Parameter image.url Must Fill!")
+          return this
+        }
+        if (!typeof image?.url === "string") {
+          console.log("(Clorynin Alert) Parameter image.url Must Be A String")
+          return this
+        }
+        if (image?.url.length === 0) {
+          console.log("(Clorynin Alert) Parameter image.url Cannot Be Empty")
+          return this
+        }
+        if ((!image.url?.startsWith("http")) || (!image.url?.startsWith("https"))) {
+          console.log("(Clorynin Alert) Parameter image.url Must Be Using URL\n\nLike \"https://google.com/image.jpg\"")
+          return this
+        }
+        this.image = { url: image.url }
+        return this
+      } catch (err) {
+        console.log("(Clorynin Error) " + err)
         return this
       }
-      if (!typeof image?.url === "string") {
-        console.log("(Clorynin Alert) Parameter image.url Must Be A String")
-        return this
-      }
-      if (image?.url.length === 0) {
-        console.log("(Clorynin Alert) Parameter image.url Cannot Be Empty")
-        return this
-      }
-      if ((!image.url?.startsWith("http")) || (!image.url?.startsWith("https"))) {
-        console.log("(Clorynin Alert) Parameter image.url Must Be Using URL\n\nLike \"https://google.com/image.jpg\"")
-        return this
-      }
-      this.image = { url: image.url }
-      return this
-    } catch (err) {
-      console.log("(Clorynin Error) " + err)
-      return this
     }
   }
 
