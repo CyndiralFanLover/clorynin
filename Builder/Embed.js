@@ -123,7 +123,7 @@ class Embed {
   setImage(image) {
     try {
       if (typeof image === "string") {
-        this.image = image
+        this.image = {url: image}
         return this
       } else {
         if (!image?.url) {
