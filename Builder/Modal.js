@@ -2,8 +2,9 @@ class Modal {
   constructor(data) {
     this.title = data?.title || null
     this.custom_id = data?.custom_id || null
-    this.components = data?.components || []
+    this.components = data?.components || null
   }
+  
   setTitle(title) {
     try {
       if (!title) {
@@ -50,28 +51,36 @@ class Modal {
       return this
     }
   }
-  addComponents(data) {
-    if (!data) {
-      console.log("(Clorynin Alert) Parameter compon Must Fill!")
+  
+  addComponent(obj) {
+    if (this.components === null) this.components = []
+    if (!obj) {
+      console.log('Obj Cannot Empty')
       return this
     }
-    if (!Array.isArray(data)) {
-      console.log("(Clorynin Alert) Parameter compon Must Be A String")
+    if (!typeof obj === "object") {
+      console.log("Obj Must Be A Object From Component Builder")
       return this
     }
-    if (!data.length === 0) {
-      console.log("(Clorynin Alert) Parameter compon Cannot Be Empty")
+    this.components.push(obj)
+  }
+  
+  addComponents(naray) {
+    if (this.components === null) this.components = []
+    if (!typeof naray === "array") {
+      console.log('Naray Must Be Array')
       return this
     }
-    data.map((neh, num) => {
-      if(!neh?.type === 1) {
-        console.log("(Clorynin) Only Rows Can Be Entered Here")
+    naray.map((yanto, yanti) => {
+      if (!yanto) {
+        console.log(`[Component ${yanti}] ` + 'Obj Cannot Empty')
         return this
       }
-      if(!neh?.components.length > 1) {
-          neh.components = [neh.components[0]]
-        }
-        this.components.push(neh.components)
+      if (!typeof yanto === "object") {
+        console.log(`[Component ${yanti}] ` + "Obj Must Be A Object From Component Builder")
+        return this
+      }
+      this.components.push(yanto)
     })
     return this
   }
