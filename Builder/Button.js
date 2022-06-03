@@ -9,7 +9,8 @@ class Button {
     this.url = data?.url || null
     this.disabled = data?.disabled || false
     this.emoji = {
-      id: data?.emoji || null
+      id: data?.emoji?.id || null,
+      name: data?.emoji?.name || null
     }
   }
 
@@ -69,21 +70,18 @@ class Button {
     }
   }
 
-  setEmoji(emojiid) {
+  setEmoji(emojiobject) {
     try {
-      if (!emojiid) {
-        console.log("(Clorynin Alert) Parameter emojiid Must Fill!")
+      if (!emojiobject) {
+        console.log("(Clorynin Alert) Parameter emojiobject Must Fill!")
         return this
       }
-      if(!typeof emojiid === "string") {
-        console.log("(Clorynin Alert) Parameter emojiid Must Be A String")
+      if(!typeof emojiid === "object") {
+        console.log("(Clorynin Alert) Parameter emojiobject Must Be A Object")
         return this
       }
-      if (emojiid.length === 0) {
-        console.log("(Clorynin Alert) Parameter emojiid Cannot Be Empty")
-        return this
-      }
-      this.emoji.id = emojiid
+      
+      this.emoji = emojiobject
       return this
     } catch (err) {
       console.log("(Clorynin Error) " + err)
