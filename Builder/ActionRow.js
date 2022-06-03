@@ -1,10 +1,11 @@
 class ActionRow {
-  constructor() {
+  constructor(data) {
     this.type = 1
-    this.components = []
+    this.components = data?.components || null
   }
 
   addComponent(obj) {
+    if(this.components === null) this.components = []
     if (!obj) {
       console.log('Obj Cannot Empty')
       return this
@@ -17,6 +18,7 @@ class ActionRow {
   }
 
   addComponents(naray) {
+    if(this.components === null) this.components = []
     if (!typeof naray === "array") {
       console.log('Naray Must Be Array')
       return this
