@@ -50,7 +50,7 @@ class Modal {
       return this
     }
   }
-  addComponents(compon) {
+  addComponents(data) {
     if (!data) {
       console.log("(Clorynin Alert) Parameter compon Must Fill!")
       return this
