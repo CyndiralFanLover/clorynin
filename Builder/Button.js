@@ -8,10 +8,6 @@ class Button {
     this.custom_id = data?.custom_id || null
     this.url = data?.url || null
     this.disabled = data?.disabled || false
-    this.emoji = {
-      id: data?.emoji?.id || null,
-      name: data?.emoji?.name || null
-    }
   }
 
   setLabel(label) {
