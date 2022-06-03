@@ -63,7 +63,7 @@ class Modal {
       console.log("(Clorynin Alert) Parameter compon Cannot Be Empty")
       return this
     }
-    compon.map((neh, num) => {
+    data.map((neh, num) => {
       if(!neh?.type === 1) {
         console.log("(Clorynin) Only Rows Can Be Entered Here")
         return this
