@@ -108,7 +108,7 @@ class SelectMenu {
         console.log(`(Clorynin Alert) Parameter label Must Be A String [Field ${num}]`)
         return this
       }
-      if (neh?.label.length === 0) {
+      if (neh?.label?.length === 0) {
         console.log(`(Clorynin Alert) Parameter label Cannot Be Empty [Field ${num}]`)
         return this
       }
@@ -120,20 +120,20 @@ class SelectMenu {
         console.log(`(Clorynin Alert) Parameter value Must Be A String [Field ${num}]`)
         return this
       }
-      if (neh?.value.length === 0) {
+      if (neh?.value?.length === 0) {
         console.log(`(Clorynin Alert) Parameter value Cannot Be Empty [Field ${num}]`)
         return this
       }
 
-      if ((!neh?.emoji.id) || (!neh?.emoji)) {
+      if ((!neh?.emoji?.id) || (!neh?.emoji)) {
         neh.emoji = null
       }
-      if (!typeof neh.emoji === "null") {
-        if (!typeof neh.emoji === "string") {
+      if (!typeof neh?.emoji === "null") {
+        if (!typeof neh?.emoji === "string") {
           console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
           return this
         }
-        if (neh.emoji.length === 0) {
+        if (neh?.emoji?.length === 0) {
           console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
           return this
         }
@@ -142,12 +142,12 @@ class SelectMenu {
       if (!neh?.description) {
         neh.description = null
       }
-      if (!typeof neh.description === "null") {
-        if ((!typeof neh.description === "string")) {
+      if (!typeof neh?.description === "null") {
+        if ((!typeof neh?.description === "string")) {
           console.log("(Clorynin Alert) Parameter iconURL Must Be A String")
           return this
         }
-        if (neh.description.length === 0) {
+        if (neh?.description?.length === 0) {
           console.log("(Clorynin Alert) Parameter iconURL Cannot Be Empty")
           return this
         }
