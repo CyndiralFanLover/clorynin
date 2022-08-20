@@ -72,7 +72,8 @@ class SelectMenu {
     this.min_values = value
     return this
   }
-  setMaxValues() {
+  
+  setMaxValues(value) {
     if (!value) {
       console.log("(Clorynin Alert) Parameter value Must Fill!")
       return this
