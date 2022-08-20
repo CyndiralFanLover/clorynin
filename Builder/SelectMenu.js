@@ -70,6 +70,7 @@ class SelectMenu {
       return this
     }
     this.min_values = value
+    return this
   }
   setMaxValues() {
     if (!value) {
@@ -81,6 +82,7 @@ class SelectMenu {
       return this
     }
     this.max_values = value
+    return this
   }
   
   addOptions(data) {
@@ -157,6 +159,7 @@ class SelectMenu {
       if (!Array.isArray(this.fields)) this.options = []
       this?.options.push({ label: neh?.label, value: neh?.value, description: neh?.description, emoji: neh?.emoji, default: neh?.default })
     })
+    return this
   }
 }
 
