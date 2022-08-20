@@ -157,8 +157,8 @@ class SelectMenu {
         neh.default = false
       }
 
-      if (!Array.isArray(this.fields)) this.options = []
-      this?.options.push({ label: neh?.label, value: neh?.value, description: neh?.description, emoji: neh?.emoji, default: neh?.default })
+      if (!Array.isArray(this.options)) this.options = []
+      this.options.push({ label: neh?.label, value: neh?.value, description: neh?.description, emoji: neh?.emoji, default: neh?.default })
     })
     return this
   }
