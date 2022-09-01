@@ -14,6 +14,7 @@ module.exports = {
   ButtonStyle: helper.ButtonStyle,
   TextInputStyle: helper.TextInputStyle,
   ResolveColor: helper.ResolveColor,
+  ActivityType: helper.ActivityType,
   Embed: Embed,
   ActionRow: ActionRow,
   Command: Command,
