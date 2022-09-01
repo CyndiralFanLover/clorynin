@@ -89,8 +89,8 @@ function CommandType(args) {
 
 //Style
 function ButtonStyle(args) {
-  if(!args) return;
-  if(!typeof args === "string") {
+  if (!args) return;
+  if (!typeof args === "string") {
     return console.log("(Clorynin Module Eror) args Must Be A String")
   }
   args = args.toUpperCase()
@@ -116,7 +116,7 @@ function TextInputStyle(args) {
   if (!typeof args === "string") {
     return console.log("(Clorynin Module Eror) args Must Be A String")
   }
-  if(!typeof args === "string") {
+  if (!typeof args === "string") {
     return console.log("(Clorynin Module Eror) args Must Be A String")
   }
   args = args.toUpperCase()
@@ -129,7 +129,7 @@ function TextInputStyle(args) {
 }
 
 function ResolveColor(args) {
-  if(!args) return;
+  if (!args) return;
   if ((!typeof args === "string")) console.log("Color Must Be A String")
   if (args.startsWith("#")) {
     var bbggrr = args.substr(4, 2) + args.substr(2, 2) + args.substr(0, 2);
@@ -163,11 +163,37 @@ function ResolveColor(args) {
   }
 }
 
+function ActivityType(type) {
+  type = type.toLowerCase()
+  switch (type) {
+    case "playing":
+      return 0
+      break;
+    case "streaming":
+      return 1
+      break;
+    case "listening":
+      return 2
+      break;
+    case "watching":
+      return 3
+      break;
+    case "custom":
+      return 4
+      break;
+    case "competing":
+      return 5
+      break;
+  }
+}
+
+
 module.exports = {
   CommandOptionType: CommandOptionType,
   CommandPermissionType: CommandPermissionType,
   CommandType: CommandType,
   ButtonStyle: ButtonStyle,
   TextInputStyle: TextInputStyle,
-  ResolveColor: ResolveColor
+  ResolveColor: ResolveColor,
+  ActivityType: ActivityType
 }
